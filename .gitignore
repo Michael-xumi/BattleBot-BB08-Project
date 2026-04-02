@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Arduino
+*.ino.build
+*.elf
+*.hex
+
+# General
+*.log
