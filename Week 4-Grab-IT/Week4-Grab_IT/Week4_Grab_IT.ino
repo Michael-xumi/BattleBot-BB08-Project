@@ -1,3 +1,18 @@
+// Battlebot BB008
+// Team IT-1D
+// Michael O. Boeteng Student ID.5598168
+// Jenjira Huaisai Student ID.5681502
+// ======================================
+// Assignment Week 3.4 Grab-IT (millis())  
+// ======================================
+// Pick up the cone and keep the servo active by using millis() to update, 
+// Then, open the gripper 
+// Then, close it after a second 
+// Then, open it again after a second without having mechanical limits, 
+// Then, drive 25 cm forward to the cone
+// Then, grab it and drive another 25cm and keep the gripper active !!!
+// ======================================
+
 // MOTOR PINS 
 #define MOTOR_LEFT_BACK  3
 #define MOTOR_LEFT_FWD   5

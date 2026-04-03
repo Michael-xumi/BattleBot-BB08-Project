@@ -1,3 +1,15 @@
+// Battlebot BB008
+// Team IT-1D
+// Michael O. Boeteng Student ID.5598168
+// Jenjira Huaisai Student ID.5681502
+// ======================================
+// Assignment Week 3.2 Object Avoidance
+// ======================================
+// Drive in a straight line towards an object
+// Then, avoid the object by moving around it
+// The, continue on the same (imaginary) straight line
+// ======================================
+
 //  MOTOR PINS
 #define LEFT_BACKWARD  3
 #define LEFT_FORWARD   5
@@ -106,7 +118,7 @@ long getDistance() {
   return duration * 0.034 / 2;
 }
 
-//  OBSTACLE DETOUR FUNCTION
+// OBSTACLE DETOUR FUNCTION
 void avoidObstacle() {
   stopMotors();
   delay(300);

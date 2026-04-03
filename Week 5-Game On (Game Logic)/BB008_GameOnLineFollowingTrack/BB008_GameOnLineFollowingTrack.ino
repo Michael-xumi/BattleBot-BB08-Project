@@ -1,5 +1,5 @@
 //BattleBot-BB008
-//Game on : Line Following Mate
+//Game on : Line Following Track
 //Jenjira Huaisai Student 		ID.5681502
 //Michael O. Boateng Student 	ID.5598168
 //First-Year IT Program Students NHL Stenden Hogeschool

@@ -10,7 +10,6 @@
 // Press an other button and blink once every 2 seconds
 // ======================================
 
-
 // LED
 #define RED_LED LED_BUILTIN
 

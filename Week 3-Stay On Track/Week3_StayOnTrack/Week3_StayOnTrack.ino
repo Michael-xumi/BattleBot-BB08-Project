@@ -1,21 +1,47 @@
-// Line Following  Success 13 March 2026
+// Battlebot BB008
+// Team IT-1D
+// Michael O. Boeteng Student ID.5598168
+// Jenjira Huaisai Student ID.5681502
+// ======================================
+// Assignment Week 3 Stay on track (arrays)
+// ======================================
+// Follow the black line on the track
+// ======================================
 
-#define SENSOR_PINS {A0,A1,A2,A3,A4,A5,A6,A7}
-int sensorPins[8] = SENSOR_PINS;
+// SENSOR PINS
+#define SENSOR_0 A0
+#define SENSOR_1 A1
+#define SENSOR_2 A2
+#define SENSOR_3 A3
+#define SENSOR_4 A4
+#define SENSOR_5 A5
+#define SENSOR_6 A6
+#define SENSOR_7 A7
+
+const int SENSOR_PINS[8] =
+{
+    SENSOR_0, SENSOR_1, SENSOR_2, SENSOR_3,
+    SENSOR_4, SENSOR_5, SENSOR_6, SENSOR_7
+};
 
 int sensorValues[8];
 
-#define WEIGHTS {-3500,-2500,-1500,-500,500,1500,2500,3500}
-int weights[8] = WEIGHTS;
+int weights[8] =
+{
+    -3500, -2500, -1500, -500,
+     500,  1500,  2500,  3500
+};
 
-// MOTOR CONTROL 
-#define MOTOR_LEFT_FORWARD 5
-#define MOTOR_LEFT_BACK 3
-#define MOTOR_RIGHT_BACK 11
+// MOTOR CONTROL
+#define MOTOR_LEFT_FORWARD  5
+#define MOTOR_LEFT_BACK     3
+#define MOTOR_RIGHT_BACK    11
 #define MOTOR_RIGHT_FORWARD 6
 
+// THRESHOLD
 #define BLACK_THRESHOLD 800
 
+// SETUP
 void setup()
 {
     Serial.begin(9600);
@@ -24,13 +50,9 @@ void setup()
     pinMode(MOTOR_LEFT_BACK, OUTPUT);
     pinMode(MOTOR_RIGHT_FORWARD, OUTPUT);
     pinMode(MOTOR_RIGHT_BACK, OUTPUT);
-
-    digitalWrite(MOTOR_LEFT_FORWARD, LOW);
-    digitalWrite(MOTOR_LEFT_BACK, LOW);
-    digitalWrite(MOTOR_RIGHT_FORWARD, LOW);
-    digitalWrite(MOTOR_RIGHT_BACK, LOW);
 }
 
+// LOOP
 void loop()
 {
     long position = 0;
@@ -38,7 +60,7 @@ void loop()
 
     for (int i = 0; i < 8; i++)
     {
-        sensorValues[i] = analogRead(sensorPins[i]);
+        sensorValues[i] = analogRead(SENSOR_PINS[i]);
 
         if (sensorValues[i] > BLACK_THRESHOLD)
         {
@@ -72,7 +94,7 @@ void loop()
 
     int correction = error / 16;
 
-    //  CURVE ANTICIPATION 
+    // CURVE ANTICIPATION
     if (sensorValues[0] > BLACK_THRESHOLD || sensorValues[1] > BLACK_THRESHOLD)
     {
         correction -= 25;
@@ -96,6 +118,7 @@ void loop()
     analogWrite(MOTOR_RIGHT_BACK, 0);
 }
 
+// FUNCTIONS
 void stopMotors()
 {
     analogWrite(MOTOR_LEFT_FORWARD, 0);
